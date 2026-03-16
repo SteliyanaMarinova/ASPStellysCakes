@@ -287,3 +287,4 @@ C:\Users\steli\OneDrive\Desktop\ДипломенПрактика\ASPStellysCake\
 C:\Users\steli\OneDrive\Desktop\ДипломенПрактика\ASPStellysCake\ASPStellysCake\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\steli\OneDrive\Desktop\ДипломенПрактика\ASPStellysCake\ASPStellysCake\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\steli\OneDrive\Desktop\ДипломенПрактика\ASPStellysCake\ASPStellysCake\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\steli\OneDrive\Desktop\ДипломенПрактика\ASPStellysCake\ASPStellysCake\obj\Debug\net8.0\ASPStellysCake.sourcelink.json

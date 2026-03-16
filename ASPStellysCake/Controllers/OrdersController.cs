@@ -7,22 +7,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASPStellysCake.Data;
 using ASPStellysCake.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Build.Experimental.ProjectCache;
 
 namespace ASPStellysCake.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<Customer> _userManager;
 
-        public OrdersController(ApplicationDbContext context)
+        public OrdersController(ApplicationDbContext context, UserManager<Customer> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Orders.Include(o => o.Products);
+            var applicationDbContext = _context.Orders.Include(o => o.Customers).Include(o => o.Products);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,6 +41,7 @@ namespace ASPStellysCake.Controllers
             }
 
             var order = await _context.Orders
+                .Include(o => o.Customers)
                 .Include(o => o.Products)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (order == null)
@@ -48,7 +55,8 @@ namespace ASPStellysCake.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id");
+            //ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name");
             return View();
         }
 
@@ -57,15 +65,18 @@ namespace ASPStellysCake.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerId,ProductId,Quantity,RegisterOn")] Order order)
+        public async Task<IActionResult> Create([Bind("ProductId,Quantity")] Order order)
         {
+            order.RegisterOn = DateTime.Now;
+            order.CustomerId = _userManager.GetUserId(User);
             if (ModelState.IsValid)
             {
                 _context.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
+            //ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "Id", order.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", order.ProductId);
             return View(order);
         }
 
@@ -82,7 +93,8 @@ namespace ASPStellysCake.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
+            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "UserName", order.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", order.ProductId);
             return View(order);
         }
 
@@ -91,8 +103,10 @@ namespace ASPStellysCake.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CustomerId,ProductId,Quantity,RegisterOn")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,ProductId,Quantity")] Order order)
         {
+            order.RegisterOn = DateTime.Now;
+            order.CustomerId = _userManager.GetUserId(User);
             if (id != order.Id)
             {
                 return NotFound();
@@ -118,7 +132,8 @@ namespace ASPStellysCake.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
+            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "Name", order.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "UserName", order.ProductId);
             return View(order);
         }
 
@@ -131,6 +146,7 @@ namespace ASPStellysCake.Controllers
             }
 
             var order = await _context.Orders
+                .Include(o => o.Customers)
                 .Include(o => o.Products)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (order == null)
