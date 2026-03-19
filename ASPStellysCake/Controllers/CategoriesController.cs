@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASPStellysCake.Data;
 using ASPStellysCake.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASPStellysCake.Controllers
 {
