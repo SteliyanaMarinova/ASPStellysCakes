@@ -20,9 +20,9 @@ namespace ASPStellysCake.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int categoryId)
         {
-            var applicationDbContext = _context.Products.Include(p => p.Categories);
+            var applicationDbContext = _context.Products.Include(p => p.Categories).Where(x=>x.CategoryId==categoryId);
             return View(await applicationDbContext.ToListAsync());
         }
 
