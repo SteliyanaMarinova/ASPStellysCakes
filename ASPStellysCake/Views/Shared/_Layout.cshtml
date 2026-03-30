@@ -10,14 +10,13 @@
 </head>
 <body>
     <header class="main-header">
-        <div class="logo-container">
-            <img src="~/images/logo.png" alt="Лого" class="logo" />
-            <h1 class="site-title">Stelly's Cakes</h1>
-        </div>
-
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow">
+        <nav class="navbar navbar-expand-sm navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand d-sm-none" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand logo-container">
+                    <img src="/images/logo.png" alt="Лого" />
+                </a>
+
+                <a class="navbar-brand brand-text" asp-area="" asp-controller="Home" asp-action="Index">
                     Stelly's Cakes
                 </a>
 

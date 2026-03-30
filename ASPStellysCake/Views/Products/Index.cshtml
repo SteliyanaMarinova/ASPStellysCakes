@@ -5,10 +5,14 @@
 }
 
 <h1>Index</h1>
+@if (User.IsInRole("Admin"))
+{
+    <div class="create-wrapper">
+        <a asp-action="Create" class="btn-create">Добави продукт</a>
+    </div>
+}
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <div class="product-container">
     @foreach (var item in Model)
     {
@@ -16,7 +20,8 @@
         if (item.GlutenFree)
         {
             gluten = "Няма";
-        }else
+        }
+        else
         {
             gluten = "Има";
         }
