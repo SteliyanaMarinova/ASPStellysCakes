@@ -27,7 +27,7 @@ namespace ASPStellysCake.Controllers
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, int? categoryId)
         {
             if (id == null)
             {
@@ -37,10 +37,13 @@ namespace ASPStellysCake.Controllers
             var product = await _context.Products
                 .Include(p => p.Categories)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (product == null)
             {
                 return NotFound();
             }
+
+            ViewBag.CategoryId = categoryId;
 
             return View(product);
         }
@@ -64,7 +67,7 @@ namespace ASPStellysCake.Controllers
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { categoryId = product.CategoryId });
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
             return View(product);
@@ -92,7 +95,7 @@ namespace ASPStellysCake.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,CatNumber,CategoryId,Weight,GlutenFree,Description,ImageURL,Price")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CatNumber,CategoryId,Weight,GlutenFree,Description,ImageURL,Price")] Product product)
         {
             product.RegisterOn = DateTime.Now;
             if (id != product.Id)
@@ -118,14 +121,15 @@ namespace ASPStellysCake.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { categoryId = product.CategoryId });
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
             return View(product);
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, int? categoryId)
         {
             if (id == null)
             {
@@ -135,10 +139,13 @@ namespace ASPStellysCake.Controllers
             var product = await _context.Products
                 .Include(p => p.Categories)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (product == null)
             {
                 return NotFound();
             }
+
+            ViewBag.CategoryId = categoryId;
 
             return View(product);
         }
@@ -146,16 +153,18 @@ namespace ASPStellysCake.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int categoryId)
         {
             var product = await _context.Products.FindAsync(id);
+
             if (product != null)
             {
                 _context.Products.Remove(product);
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction(nameof(Index), new { categoryId = categoryId });
         }
 
         private bool ProductExists(int id)
