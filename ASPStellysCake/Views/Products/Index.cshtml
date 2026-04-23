@@ -41,6 +41,12 @@
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     <a asp-action="Delete" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Delete</a>
                 }
+                <form asp-controller="Orders" asp-action="CreateCake" asp-route-cakeId="@item.Id" method="post">
+                    <input type="hidden" name="cakeId" value="@item.Id" />
+                    <button type="submit" class="btn btn-primary">
+                       Поръчай
+                    </button>
+                </form>
                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Details</a>
             </div>
         </div>

@@ -63,6 +63,27 @@ namespace ASPStellysCake.Controllers
         // POST: Orders/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCake(int cakeId)
+        {
+            Order order = new Order();
+            order.ProductId = cakeId;
+            order.Quantity = 1;
+            order.RegisterOn = DateTime.Now;
+            order.CustomerId = _userManager.GetUserId(User);
+            if (ModelState.IsValid)
+            {
+                _context.Add(order);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            //ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "Id", order.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", order.ProductId);
+            return View(order);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,Quantity")] Order order)
@@ -103,7 +124,7 @@ namespace ASPStellysCake.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,ProductId,Quantity")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CustomerId,ProductId,Quantity")] Order order)
         {
             order.RegisterOn = DateTime.Now;
             order.CustomerId = _userManager.GetUserId(User);
