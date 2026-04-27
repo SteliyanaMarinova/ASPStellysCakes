@@ -3,32 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\views\\products\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\views\\products\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,95 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "ASPStellysCake\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Models\\Order.cs",
-              "RelativeToolTip": "ASPStellysCake\\Models\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T06:46:15.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "ASPStellysCake\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "ASPStellysCake\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAwwH4AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T06:44:10.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ASPStellysCake\\Views\\Products\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Delete.cshtml",
-              "RelativeToolTip": "ASPStellysCake\\Views\\Products\\Delete.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T09:04:46.907Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Details.cshtml",
-              "RelativeDocumentMoniker": "ASPStellysCake\\Views\\Products\\Details.cshtml",
-              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Details.cshtml",
-              "RelativeToolTip": "ASPStellysCake\\Views\\Products\\Details.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEYAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T09:00:36.601Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "ASPStellysCake\\Views\\Products\\Index.cshtml",
               "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Index.cshtml",
               "RelativeToolTip": "ASPStellysCake\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAC4AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T08:57:24.459Z",
+              "WhenOpened": "2026-04-27T07:53:49.268Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Orders\\Index.cshtml",
-              "RelativeDocumentMoniker": "ASPStellysCake\\Views\\Orders\\Index.cshtml",
-              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Orders\\Index.cshtml",
-              "RelativeToolTip": "ASPStellysCake\\Views\\Orders\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T08:57:18.39Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "ASPStellysCake\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "ASPStellysCake\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAgwKcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T05:55:34.503Z"
             }
           ]
         }

@@ -4,62 +4,62 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Детайли</h1>
 
 <div>
-    <h4>Product</h4>
+    <h4>Продукт</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            Име на продукт
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CatNumber)
+            Каталожен номер
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CatNumber)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Categories)
+            Категория
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Categories.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Weight)
+            Грамаж
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Weight)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GlutenFree)
+            С глутен
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.GlutenFree)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            Описание
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageURL)
+            Снимка
         </dt>
         <dd class = "col-sm-10">
             <img src="@Html.DisplayFor(model => model.ImageURL)" width="100px"/>
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            Цена
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Price)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegisterOn)
+            Дата на създаване
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RegisterOn)
@@ -67,6 +67,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index" asp-route-categoryId="@ViewBag.CategoryId">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Редактиране</a> |
+    <a asp-action="Index" asp-route-categoryId="@ViewBag.CategoryId">Върни се в списъка</a>
 </div>

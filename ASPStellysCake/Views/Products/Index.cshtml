@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Торти</h1>
 @if (User.IsInRole("Admin"))
 {
     <div class="create-wrapper">
@@ -38,8 +38,8 @@
             <div class="card-buttons">
                 @if (User.IsInRole("Admin"))
                 {
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редактиране</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Изтриване</a>
                 }
                 <form asp-controller="Orders" asp-action="CreateCake" asp-route-cakeId="@item.Id" method="post">
                     <input type="hidden" name="cakeId" value="@item.Id" />
@@ -47,7 +47,7 @@
                        Поръчай
                     </button>
                 </form>
-                <a asp-action="Details" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Details</a>
+                <a asp-action="Details" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Детайли</a>
             </div>
         </div>
     }
