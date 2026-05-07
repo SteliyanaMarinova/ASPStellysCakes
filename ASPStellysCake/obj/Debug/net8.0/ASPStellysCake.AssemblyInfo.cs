@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASPStellysCake")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30c0334ef232135da3fc573b52a1e3999962ece0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01cbe813b7d4637c3f69645fb47603aa0ed28148")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASPStellysCake")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASPStellysCake")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Галерия";
+}
+
+<div class="gallery-container">
+
+    <h1>Галерия</h1>
+
+    <div class="gallery-content">
+
+        <!-- ГАЛЕРИЯ -->
+        <div class="gallery-grid">
+
+            <div class="gallery-card" data-category="clasic">
+                <img src="/images/cake1.jpg" />
+            </div>
+
+            <div class="gallery-card" data-category="povod">
+                <img src="/images/cake2.jpg" />
+            </div>
+
+            <div class="gallery-card" data-category="glutenfree">
+                <img src="/images/cake3.jpg" />
+            </div>
+        </div>
+
+        <!-- ФИЛТРИ -->
+        <div class="gallery-filters">
+
+            <label><input type="checkbox" value="clasic" /> Класически торти</label>
+            <label><input type="checkbox" value="povod" /> Торти за повод</label>
+            <label><input type="checkbox" value="glutenfree" /> Без глутен</label>
+        </div>
+
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img id="lightbox-img" />
+        </div>
+</div>

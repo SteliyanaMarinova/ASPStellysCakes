@@ -1,5 +1,8 @@
-﻿@model IEnumerable<ASPStellysCake.Models.Product>
+﻿
+\
+@model IEnumerable<ASPStellysCake.Models.Product>
 
+<h1>ViewBag.Titttt</h1>
 @{
     ViewData["Title"] = "Index";
 }
@@ -41,12 +44,15 @@
                     <a asp-action="Edit" asp-route-id="@item.Id">Редактиране</a>
                     <a asp-action="Delete" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Изтриване</a>
                 }
-                <form asp-controller="Orders" asp-action="CreateCake" asp-route-cakeId="@item.Id" method="post">
-                    <input type="hidden" name="cakeId" value="@item.Id" />
-                    <button type="submit" class="btn btn-primary">
-                       Поръчай
-                    </button>
-                </form>
+                @if (User.IsInRole("Customer"))
+                {
+                    <form asp-controller="Orders" asp-action="CreateCake" asp-route-cakeId="@item.Id" method="post">
+                        <input type="hidden" name="cakeId" value="@item.Id" />
+                        <button type="submit" class="btn btn-primary">
+                            Поръчай
+                        </button>
+                    </form>
+                }                
                 <a asp-action="Details" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Детайли</a>
             </div>
         </div>

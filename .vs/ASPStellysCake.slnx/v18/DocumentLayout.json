@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|c:\\users\\steli\\onedrive\\desktop\\\u0434\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\aspstellyscake\\aspstellyscake\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DBD2D011-5970-DAE8-2553-5F74550EC105}|ASPStellysCake\\ASPStellysCake.csproj|solutionrelative:aspstellyscake\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "ASPStellysCake\\Views\\Products\\Index.cshtml",
               "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Views\\Products\\Index.cshtml",
               "RelativeToolTip": "ASPStellysCake\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-27T07:53:49.268Z",
+              "WhenOpened": "2026-05-07T09:40:18.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "ASPStellysCake\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "ASPStellysCake\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T09:36:48.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Program.cs",
+              "RelativeDocumentMoniker": "ASPStellysCake\\Program.cs",
+              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Program.cs",
+              "RelativeToolTip": "ASPStellysCake\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T09:22:09.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "ASPStellysCake\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "ASPStellysCake\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-07T09:13:04.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAADgv38AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T08:02:53.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\steli\\OneDrive\\Desktop\\\u0414\u0438\u043F\u043B\u043E\u043C\u0435\u043D\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\ASPStellysCake\\ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "ASPStellysCake\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAArwEgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T07:37:29.987Z",
               "EditorCaption": ""
             }
           ]
