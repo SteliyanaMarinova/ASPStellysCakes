@@ -1,42 +1,58 @@
-﻿@model ASPStellysCake.Models.Order
+﻿
 
+@model ASPStellysCake.Models.Order
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Поръчка #" + Model.Id;
+    decimal lineTotal = Model.Products != null ? Model.Products.Price * Model.Quantity : 0;
 }
 
-<h1>Детайли</h1>
-
-<div>
-    <h4>Поръчка</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Клиент
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Customers.UserName)
-        </dd>
-        <dt class = "col-sm-2">
-            Продукт
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Products.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            Брой
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-        <dt class = "col-sm-2">
-            Дата на създаване
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterOn)
-        </dd>
-    </dl>
+<div class="section-header">
+    <h1 class="section-title">Поръчка <span style="color:var(--rose-600);">#@Model.Id</span></h1>
+    <a asp-action="Index" class="btn-ghost">← Обратно</a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Редактиране</a> |
-    <a asp-action="Index">Върни се в списъка</a>
+
+<div class="details-card" style="max-width:680px;">
+    <div class="row g-4">
+        <div class="col-md-5">
+            <img src="@Model.Products?.ImageURL" alt="@Model.Products?.Name"
+                 class="details-img w-100" onerror="this.src='/images/logo.png'" />
+        </div>
+        <div class="col-md-7">
+            <p style="font-size:0.78rem;color:var(--neutral-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">
+                Поръчка #@Model.Id · @Model.RegisterOn.ToString("dd.MM.yyyy HH:mm")
+            </p>
+            <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:20px;">@Model.Products?.Name</h2>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="detail-row">
+                    <span class="detail-label">Клиент</span>
+                    <span class="detail-value">@Model.Customers?.UserName<br /><span style="font-size:0.8rem;color:var(--neutral-400);">@Model.Customers?.Email</span></span>
+                </div>
+            }
+            <div class="detail-row">
+                <span class="detail-label">Категория</span>
+                <span class="detail-value">@Model.Products?.Categories?.Name</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Единична цена</span>
+                <span class="detail-value">@Model.Products?.Price.ToString("F2") лв.</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Количество</span>
+                <span class="detail-value">@Model.Quantity бр.</span>
+            </div>
+            <div class="detail-row" style="border-bottom:none;padding-top:16px;">
+                <span class="detail-label" style="font-size:1rem;">Обща сума</span>
+                <span style="font-size:1.5rem;font-weight:800;color:var(--rose-600);">@lineTotal.ToString("F2") лв.</span>
+            </div>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="mt-4">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-ghost">✏️ Редактирай</a>
+                </div>
+            }
+        </div>
+    </div>
 </div>

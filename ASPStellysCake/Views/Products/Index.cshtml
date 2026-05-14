@@ -1,60 +1,89 @@
 ﻿
-\
+
+
 @model IEnumerable<ASPStellysCake.Models.Product>
-
-<h1>ViewBag.Titttt</h1>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = ViewData["Title"] ?? "Торти";
+    var favoriteIds = ViewBag.FavoriteIds as List<int> ?? new List<int>();
+    var categoryId = ViewBag.CategoryId;
 }
 
-<h1>Торти</h1>
-@if (User.IsInRole("Admin"))
-{
-    <div class="create-wrapper">
-        <a asp-action="Create" class="btn-create">Добави продукт</a>
-    </div>
-}
-
-
-<div class="product-container">
-    @foreach (var item in Model)
+<div class="section-header">
+    <h1 class="section-title">@ViewData["Title"]</h1>
+    @if (User.IsInRole("Admin"))
     {
-        var gluten = "";
-        if (item.GlutenFree)
-        {
-            gluten = "Няма";
-        }
-        else
-        {
-            gluten = "Има";
-        }
-        <div class="product-card">
-            <img src="@item.ImageURL" alt="@item.Name" />
-            
-            <h3>@item.Name</h3>
-            <p><strong>Категория:</strong> @item.Categories.Name</p>
-            <p><strong>Тегло:</strong> @item.Weight</p>
-            <p><strong>Глутен:</strong> @gluten</p>
-            <p><strong>Описание:</strong> @item.Description</p>
-            <p class="price">@item.Price лв.</p>
-
-            <div class="card-buttons">
-                @if (User.IsInRole("Admin"))
-                {
-                    <a asp-action="Edit" asp-route-id="@item.Id">Редактиране</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Изтриване</a>
-                }
-                @if (User.IsInRole("Customer"))
-                {
-                    <form asp-controller="Orders" asp-action="CreateCake" asp-route-cakeId="@item.Id" method="post">
-                        <input type="hidden" name="cakeId" value="@item.Id" />
-                        <button type="submit" class="btn btn-primary">
-                            Поръчай
-                        </button>
-                    </form>
-                }                
-                <a asp-action="Details" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId">Детайли</a>
-            </div>
-        </div>
+        <a asp-action="Create" class="btn-create">+ Добави продукт</a>
     }
 </div>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">
+        <div class="empty-icon">🎂</div>
+        <p>Няма продукти в тази категория.</p>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="btn-pink">+ Добави първия продукт</a>
+        }
+    </div>
+}
+else
+{
+    <div class="product-container">
+        @foreach (var item in Model)
+        {
+            <div class="product-card">
+                <div style="overflow:hidden;">
+                    <img class="product-card-img" src="@item.ImageURL" alt="@item.Name"
+                         onerror="this.src='/images/logo.png'" />
+                </div>
+                <div class="product-card-body">
+                    <h3>@item.Name</h3>
+                    <p class="product-meta">@item.Categories?.Name</p>
+                    <p class="product-meta">Тегло: @item.Weight кг</p>
+                    @if (!string.IsNullOrEmpty(item.Description))
+                    {
+                        <p class="product-meta" style="margin-top:4px;">@item.Description</p>
+                    }
+                    <div style="margin-top:8px;">
+                        @if (item.GlutenFree)
+                        {
+                            <span class="badge-gf">✓ Без глутен</span>
+                        }
+                        else
+                        {
+                            <span class="badge-gluten">⚠ Съдържа глутен</span>
+                        }
+                    </div>
+                    <p class="product-price">@item.Price.ToString("F2") лв.</p>
+                </div>
+                <div class="card-actions">
+                    @if (User.IsInRole("Customer"))
+                    {
+                        <form asp-controller="Favorites" asp-action="Toggle" method="post" style="display:inline;margin:0;">
+                            <input type="hidden" name="productId" value="@item.Id" />
+                            <input type="hidden" name="returnUrl" value="/Products/Index?categoryId=@categoryId" />
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="fav-btn @(favoriteIds.Contains(item.Id) ? "active" : "inactive")"
+                                    title="@(favoriteIds.Contains(item.Id) ? "Премахни от любими" : "Добави в любими")">
+                                @(favoriteIds.Contains(item.Id) ? "♥" : "♡")
+                            </button>
+                        </form>
+                        <form asp-controller="Cart" asp-action="Add" method="post" style="display:inline;margin:0;">
+                            <input type="hidden" name="productId" value="@item.Id" />
+                            <input type="hidden" name="quantity" value="1" />
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn-pink" style="padding:7px 14px;font-size:0.82rem;">🛒 В количката</button>
+                        </form>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.Id" asp-route-categoryId="@categoryId" class="btn-ghost" style="font-size:0.83rem;padding:7px 12px;">Детайли</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn-ghost" style="font-size:0.83rem;padding:7px 12px;">✏️</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" asp-route-categoryId="@item.CategoryId" class="btn-danger-sm" style="font-size:0.83rem;padding:7px 12px;">🗑</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}

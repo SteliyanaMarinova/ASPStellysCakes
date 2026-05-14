@@ -1,39 +1,23 @@
 ﻿@model ASPStellysCake.Models.Category
-
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Изтрий категория";
 }
-
-<h1>Изтриване</h1>
-
-<h3>Сигурен ли си, че искаш да изтриеш тази категория?</h3>
-<div>
-    <h4>Категория</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Име на категория
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            Описание
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            Дата на създаване
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterOn)
-        </dd>
-    </dl>
-    
+<div class="section-header">
+    <h1 class="section-title">Потвърди изтриване</h1>
+</div>
+<div class="details-card" style="max-width:460px;">
+    <div style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--rose-50);border-radius:var(--radius);border:1px solid var(--rose-100);margin-bottom:24px;">
+        <span style="font-size:1.8rem;">⚠️</span>
+        <div>
+            <div style="font-weight:600;">Изтриване на „@Model.Name"</div>
+            <div style="font-size:0.85rem;color:var(--neutral-500);">Всички продукти в тази категория ще бъдат изтрити.</div>
+        </div>
+    </div>
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Изтрий" class="btn btn-danger" /> |
-        <a asp-action="Index">Върни се в списъка</a>
+        <div class="d-flex gap-3">
+            <button type="submit" class="btn-danger-sm" style="font-size:0.92rem;padding:10px 20px;">🗑 Да, изтрий</button>
+            <a asp-action="Index" class="btn-ghost">Отказ</a>
+        </div>
     </form>
 </div>

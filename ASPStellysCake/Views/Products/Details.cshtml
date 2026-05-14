@@ -1,72 +1,80 @@
-﻿@model ASPStellysCake.Models.Product
+﻿
 
+
+@model ASPStellysCake.Models.Product
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.Name;
+    bool isFav = ViewBag.IsFavorite ?? false;
+    var catId = ViewBag.CategoryId;
 }
 
-<h1>Детайли</h1>
-
-<div>
-    <h4>Продукт</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Име на продукт
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            Каталожен номер
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CatNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            Категория
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categories.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            Грамаж
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
-        <dt class = "col-sm-2">
-            С глутен
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GlutenFree)
-        </dd>
-        <dt class = "col-sm-2">
-            Описание
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            Снимка
-        </dt>
-        <dd class = "col-sm-10">
-            <img src="@Html.DisplayFor(model => model.ImageURL)" width="100px"/>
-        </dd>
-        <dt class = "col-sm-2">
-            Цена
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            Дата на създаване
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterOn)
-        </dd>
-    </dl>
+<div class="section-header">
+    <a asp-action="Index" asp-route-categoryId="@catId" class="btn-ghost">← Обратно</a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Редактиране</a> |
-    <a asp-action="Index" asp-route-categoryId="@ViewBag.CategoryId">Върни се в списъка</a>
+
+<div class="details-card">
+    <div class="row g-5">
+        <div class="col-md-5">
+            <img src="@Model.ImageURL" alt="@Model.Name" class="details-img w-100"
+                 onerror="this.src='/images/logo.png'" />
+        </div>
+        <div class="col-md-7">
+            <p style="font-size:0.8rem;color:var(--neutral-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">
+                @Model.Categories?.Name
+            </p>
+            <h1 style="font-size:1.9rem;font-weight:800;color:var(--neutral-900);letter-spacing:-0.5px;margin-bottom:16px;">
+                @Model.Name
+            </h1>
+
+            <div style="margin-bottom:20px;">
+                @if (Model.GlutenFree)
+                {
+                    <span class="badge-gf">✓ Без глутен</span>
+                }
+                else
+                {
+
+                    <span class="badge-gluten">⚠ Съдържа глутен</span>
+                }
+            </div>
+
+            <div style="margin-bottom:24px;">
+                <div class="detail-row"><span class="detail-label">Каталожен №</span><span class="detail-value">@(Model.CatNumber ?? "—")</span></div>
+                <div class="detail-row"><span class="detail-label">Тегло</span><span class="detail-value">@Model.Weight кг</span></div>
+                @if (!string.IsNullOrEmpty(Model.Description))
+                {
+                    <div class="detail-row"><span class="detail-label">Описание</span><span class="detail-value">@Model.Description</span></div>
+                }
+            </div>
+
+            <p style="font-size:2rem;font-weight:800;color:var(--rose-600);margin-bottom:28px;">
+                @Model.Price.ToString("F2") <span style="font-size:1rem;font-weight:500;color:var(--neutral-500)">лв.</span>
+            </p>
+
+            <div class="d-flex gap-3 flex-wrap">
+                @if (User.IsInRole("Customer"))
+                {
+                    <form asp-controller="Cart" asp-action="Add" method="post" class="d-inline m-0">
+                        <input type="hidden" name="productId" value="@Model.Id" />
+                        <input type="hidden" name="quantity" value="1" />
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn-pink">🛒 Добави в количката</button>
+                    </form>
+                    <form asp-controller="Favorites" asp-action="Toggle" method="post" class="d-inline m-0">
+                        <input type="hidden" name="productId" value="@Model.Id" />
+                        <input type="hidden" name="returnUrl" value="/Products/Details/@Model.Id?categoryId=@catId" />
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn-pink-outline">
+                            @(isFav ? "♥ В любими" : "♡ Добави в любими")
+                        </button>
+                    </form>
+                }
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-ghost">✏️ Редактирай</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" asp-route-categoryId="@catId" class="btn-danger-sm">🗑 Изтрий</a>
+                }
+            </div>
+        </div>
+    </div>
 </div>

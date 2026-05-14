@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ASPStellysCake.Models.Favorite>
+@{
+    ViewData["Title"] = "Любими торти";
+}
+
+<div class="section-header">
+    <h1 class="section-title">♥ Любими торти</h1>
+    <span style="font-size:0.88rem;color:var(--neutral-500);">@Model.Count() продукта</span>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">
+        <div class="empty-icon">♡</div>
+        <p>Все още нямаш любими торти.</p>
+        <a asp-controller="Products" asp-action="Index" asp-route-categoryId="2" class="btn-pink">Разгледай тортите</a>
+    </div>
+}
+else
+{
+    <div class="favorites-grid">
+        @foreach (var fav in Model)
+        {
+            <div class="product-card">
+                <div style="overflow:hidden;">
+                    <img class="product-card-img" src="@fav.Product?.ImageURL" alt="@fav.Product?.Name"
+                         onerror="this.src='/images/logo.png'" />
+                </div>
+                <div class="product-card-body">
+                    <h3>@fav.Product?.Name</h3>
+                    <p class="product-meta">@fav.Product?.Categories?.Name</p>
+                    <p class="product-meta">@fav.Product?.Weight кг</p>
+                    <p class="product-price">@fav.Product?.Price.ToString("F2") лв.</p>
+                </div>
+                <div class="card-actions">
+                    <form asp-controller="Cart" asp-action="Add" method="post" style="display:inline;margin:0;">
+                        <input type="hidden" name="productId" value="@fav.ProductId" />
+                        <input type="hidden" name="quantity" value="1" />
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn-pink" style="font-size:0.82rem;padding:7px 14px;">🛒 В количката</button>
+                    </form>
+                    <form asp-controller="Favorites" asp-action="Remove" method="post" style="display:inline;margin:0;">
+                        <input type="hidden" name="favoriteId" value="@fav.Id" />
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn-danger-sm" style="font-size:0.82rem;">♥ Премахни</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+}

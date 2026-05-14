@@ -1,77 +1,37 @@
-﻿@model ASPStellysCake.Models.Product
-
+﻿
+@model ASPStellysCake.Models.Product
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Изтрий продукт";
 }
 
-<h1>Изтриване</h1>
+<div class="section-header">
+    <h1 class="section-title">Потвърди изтриване</h1>
+</div>
 
-<h3>Сигурен ли си, че искаш да изтриеш този продукт?</h3>
-<div>
-    <h4>Продукт</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Име на продукта
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            Каталожен номер
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CatNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            Категория
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categories.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            Грамаж
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
-        <dt class = "col-sm-2">
-            С глутен
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GlutenFree)
-        </dd>
-        <dt class = "col-sm-2">
-            Описание
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            Снимка
-        </dt>
-        <dd class = "col-sm-10">
-            <img src="@Html.DisplayFor(model => model.ImageURL)" width="100px" />
-        </dd>
-        <dt class = "col-sm-2">
-            Цена
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            Дата на създаване
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterOn)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
+<div class="details-card" style="max-width:500px;">
+    <div style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--rose-50);border-radius:var(--radius);border:1px solid var(--rose-100);margin-bottom:24px;">
+        <span style="font-size:1.8rem;">⚠️</span>
+        <div>
+            <div style="font-weight:600;">Изтриване на „@Model.Name"</div>
+            <div style="font-size:0.85rem;color:var(--neutral-500);">Това действие е необратимо.</div>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-4">
+            <img src="@Model.ImageURL" alt="@Model.Name" style="width:100%;border-radius:var(--radius);object-fit:cover;aspect-ratio:1;"
+                 onerror="this.src='/images/logo.png'" />
+        </div>
+        <div class="col-8">
+            <div class="detail-row"><span class="detail-label">Категория</span><span class="detail-value">@Model.Categories?.Name</span></div>
+            <div class="detail-row"><span class="detail-label">Тегло</span><span class="detail-value">@Model.Weight кг</span></div>
+            <div class="detail-row" style="border-bottom:none;"><span class="detail-label">Цена</span><span class="detail-value" style="font-weight:700;color:var(--rose-600);">@Model.Price.ToString("F2") лв.</span></div>
+        </div>
+    </div>
+
+    <form asp-action="Delete" asp-route-categoryId="@ViewBag.CategoryId" class="d-flex gap-3">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Изтрий" class="btn btn-danger" /> |
-        <input type="hidden" name="categoryId" value="@ViewBag.CategoryId" />
-        <a asp-action="Index" asp-route-categoryId="@ViewBag.CategoryId">Върни се в списъка</a>
-
+        <button type="submit" class="btn-danger-sm" style="font-size:0.92rem;padding:10px 20px;">🗑 Да, изтрий</button>
+        <a asp-action="Index" asp-route-categoryId="@ViewBag.CategoryId" class="btn-ghost">Отказ</a>
     </form>
 </div>

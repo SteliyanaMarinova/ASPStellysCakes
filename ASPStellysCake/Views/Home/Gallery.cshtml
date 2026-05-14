@@ -2,38 +2,96 @@
     ViewData["Title"] = "Галерия";
 }
 
-<div class="gallery-container">
-
-    <h1>Галерия</h1>
-
-    <div class="gallery-content">
-
-        <!-- ГАЛЕРИЯ -->
-        <div class="gallery-grid">
-
-            <div class="gallery-card" data-category="clasic">
-                <img src="/images/cake1.jpg" />
-            </div>
-
-            <div class="gallery-card" data-category="povod">
-                <img src="/images/cake2.jpg" />
-            </div>
-
-            <div class="gallery-card" data-category="glutenfree">
-                <img src="/images/cake3.jpg" />
-            </div>
-        </div>
-
-        <!-- ФИЛТРИ -->
-        <div class="gallery-filters">
-
-            <label><input type="checkbox" value="clasic" /> Класически торти</label>
-            <label><input type="checkbox" value="povod" /> Торти за повод</label>
-            <label><input type="checkbox" value="glutenfree" /> Без глутен</label>
-        </div>
-
-        <div id="lightbox" class="lightbox">
-            <span class="close">&times;</span>
-            <img id="lightbox-img" />
-        </div>
+<div class="section-header">
+    <h1 class="section-title">Галерия</h1>
 </div>
+
+<div class="gallery-layout">
+    <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic1.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod1.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut1.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic2.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod2.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut2.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic3.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod3.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut3.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic4.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod4.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut4.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic5.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod5.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut5.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic6.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod6.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut6.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic7.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod7.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut7.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic8.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod8.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut8.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic9.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod9.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut9.jpg'" alt="Торта 3" /></div>
+        <div class="gallery-card" data-category="clasic"><img src="/images/cake1.jpg" onerror="this.src='/images/klasic10.jpg'" alt="Торта 1" /></div>
+        <div class="gallery-card" data-category="povod"><img src="/images/cake2.jpg" onerror="this.src='/images/povod10.jpg'" alt="Торта 2" /></div>
+        <div class="gallery-card" data-category="glutenfree"><img src="/images/cake3.jpg" onerror="this.src='/images/glut10.jpg'" alt="Торта 3" /></div>
+
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+
+    <div class="gallery-sidebar">
+        <h4>Филтри</h4>
+        <label class="filter-label">
+            <input type="checkbox" value="clasic" checked onchange="filterGallery()" /> Класически
+        </label>
+        <label class="filter-label">
+            <input type="checkbox" value="povod" checked onchange="filterGallery()" /> За повод
+        </label>
+        <label class="filter-label">
+            <input type="checkbox" value="glutenfree" checked onchange="filterGallery()" /> Без глутен
+        </label>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;">
+    <span onclick="closeLightbox()" style="position:absolute;top:20px;right:28px;color:white;font-size:2.5rem;cursor:pointer;line-height:1;">&times;</span>
+    <img id="lightbox-img" style="max-width:90vw;max-height:88vh;border-radius:var(--radius-lg);box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.gallery-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.getElementById('lightbox-img').src = card.querySelector('img').src;
+                document.getElementById('lightbox').style.display = 'flex';
+            });
+        });
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        function filterGallery() {
+            const checked = [...document.querySelectorAll('.gallery-sidebar input:checked')].map(i => i.value);
+            document.querySelectorAll('.gallery-card').forEach(card => {
+                card.style.display = checked.includes(card.dataset.category) ? '' : 'none';
+            });
+        }
+    </script>
+}

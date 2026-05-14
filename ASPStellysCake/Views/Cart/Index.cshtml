@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ASPStellysCake.Models.CartItem>
+@{
+    ViewData["Title"] = "Количка";
+    var total = Model.Sum(i => i.Product != null ? i.Product.Price * i.Quantity : 0);
+    int itemCount = Model.Sum(i => i.Quantity);
+}
+
+<div class="section-header">
+    <h1 class="section-title">🛒 Количка <span style="font-size:1rem;font-weight:500;color:var(--neutral-500);">(@itemCount бр.)</span></h1>
+    <a asp-controller="Products" asp-action="Index" asp-route-categoryId="2" class="btn-ghost">← Продължи пазаруването</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">
+        <div class="empty-icon">🛒</div>
+        <p>Количката ти е празна.</p>
+        <a asp-controller="Products" asp-action="Index" asp-route-categoryId="2" class="btn-pink">Разгледай тортите</a>
+    </div>
+}
+else
+{
+    <div class="cart-layout">
+        <!-- Cart Items -->
+        <div class="data-table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Продукт</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                        <th>Общо</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="@item.Product?.ImageURL" alt="@item.Product?.Name" class="cart-img"
+                                         onerror="this.src='/images/logo.png'" />
+                                    <div>
+                                        <div style="font-weight:600;color:var(--neutral-900);">@item.Product?.Name</div>
+                                        <div style="font-size:0.8rem;color:var(--neutral-500);">@item.Product?.Categories?.Name</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@item.Product?.Price.ToString("F2") лв.</td>
+                            <td>
+                                <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-flex gap-2 align-items-center">
+                                    <input type="hidden" name="cartItemId" value="@item.Id" />
+                                    @Html.AntiForgeryToken()
+                                    <input type="number" name="quantity" value="@item.Quantity" min="1" max="99" class="cart-qty-input" />
+                                    <button type="submit" class="btn-ghost" style="padding:6px 10px;font-size:0.8rem;">✓</button>
+                                </form>
+                            </td>
+                            <td>
+                                <strong style="color:var(--rose-700);">
+                                    @((item.Product != null ? item.Product.Price * item.Quantity : 0).ToString("F2")) лв.
+                                </strong>
+                            </td>
+                            <td>
+                                <form asp-controller="Cart" asp-action="Remove" method="post" class="d-inline m-0">
+                                    <input type="hidden" name="cartItemId" value="@item.Id" />
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn-danger-sm">🗑</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="cart-summary-card">
+            <h5>Обобщение</h5>
+            @foreach (var item in Model)
+            {
+                <div class="summary-row">
+                    <span>@item.Product?.Name <span style="color:var(--neutral-400);">× @item.Quantity</span></span>
+                    <span>@((item.Product != null ? item.Product.Price * item.Quantity : 0).ToString("F2")) лв.</span>
+                </div>
+            }
+            <div class="summary-total">
+                <span>Общо</span>
+                <span>@total.ToString("F2") лв.</span>
+            </div>
+            <form asp-controller="Cart" asp-action="Checkout" method="post" class="mt-4">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn-pink w-100" style="justify-content:center;padding:13px;">
+                    ✅ Потвърди поръчката
+                </button>
+            </form>
+            <p style="font-size:0.78rem;color:var(--neutral-400);text-align:center;margin-top:10px;">
+                Сигурна поръчка — ще се свържем с вас за потвърждение
+            </p>
+        </div>
+    </div>
+}

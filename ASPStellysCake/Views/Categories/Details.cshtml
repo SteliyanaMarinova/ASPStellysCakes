@@ -1,36 +1,15 @@
 ﻿@model ASPStellysCake.Models.Category
-
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Детайли</h1>
-
-<div>
-    <h4>Категория</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            Име на категория
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            Описание
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            Дата на създаване
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegisterOn)
-        </dd>
-    </dl>
+@{ ViewData["Title"] = Model.Name ?? "Категория"; }
+<div class="section-header">
+    <h1 class="section-title">@Model.Name</h1>
+    <a asp-action="Index" class="btn-ghost">← Обратно</a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Редактиране</a> |
-    <a asp-action="Index">Върни се в списъка</a>
+<div class="details-card" style="max-width:480px;">
+    <div class="detail-row"><span class="detail-label">Наименование</span><span class="detail-value">@Model.Name</span></div>
+    <div class="detail-row"><span class="detail-label">Описание</span><span class="detail-value">@Model.Description</span></div>
+    <div class="detail-row" style="border-bottom:none;"><span class="detail-label">Дата</span><span class="detail-value">@Model.RegisterOn.ToString("dd.MM.yyyy")</span></div>
+    <div class="mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-ghost">✏️ Редактирай</a>
+    </div>
 </div>
+

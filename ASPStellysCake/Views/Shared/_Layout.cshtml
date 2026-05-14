@@ -1,72 +1,105 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ASPStellysCake</title>
+    <title>@ViewData["Title"] - Stelly's Cakes</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ASPStellysCake.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header class="main-header">
-        <nav class="navbar navbar-expand-sm navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand logo-container">
-                    <img src="/images/logo.png" alt="Лого" />
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand logo-link" asp-controller="Home" asp-action="Index">
+                    <img src="/images/logo.png" alt="Logo" class="nav-logo" onerror="this.style.display='none'" />
+                    <span class="brand-text">Stelly's Cakes</span>
                 </a>
 
-                <a class="navbar-brand brand-text" asp-area="" asp-controller="Home" asp-action="Index">
-                    Stelly's Cakes
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Начало</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Начало</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Торти</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-categoryId="2">🎂 Класически торти</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-categoryId="3">🎉 Торти за повод</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-categoryId="4">🌿 Без глутен</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Products" asp-action="Index" asp-route-categoryId=2>Класически торти</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Gallery">Галерия</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Products" asp-action="Index" asp-route-categoryId=3>Торти за повод</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">Контакти</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Products" asp-action="Index" asp-route-categoryId=4>Без глутен</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Gallery">Галерия</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Контакти</a>
-                        </li>
-
                         @if (User.IsInRole("Admin"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Категории</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle admin-link" href="#" data-bs-toggle="dropdown">⚙️ Управление</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Categories" asp-action="Index">📁 Категории</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="Index">📋 Всички поръчки</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Create">➕ Добави продукт</a></li>
+                                </ul>
                             </li>
                         }
                     </ul>
 
-                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav ms-auto align-items-center gap-2 mb-2 mb-lg-0">
+                        @if (User.IsInRole("Customer"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-icon-btn" asp-controller="Favorites" asp-action="Index" title="Любими">♥</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-icon-btn" asp-controller="Cart" asp-action="Index" title="Количка">🛒</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Orders" asp-action="Index" style="font-size:0.88rem;">Поръчки</a>
+                            </li>
+                            <li><div class="nav-divider"></div></li>
+                        }
+                        <partial name="_LoginPartial" />
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="toast-banner toast-success">
+            <span>✅</span> @TempData["Success"]
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="toast-banner toast-error">
+            <span>❌</span> @TempData["Error"]
+        </div>
+    }
+
+    <div class="page-wrapper">
+        <main role="main" class="pb-5">
             @RenderBody()
         </main>
     </div>
 
-    <footer>
-        <p>&copy; Stelly's Cakes</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-brand">🎂 Stelly's Cakes</span>
+            <span class="footer-copy">&copy; @DateTime.Now.Year Stelly's Cakes — Всички права запазени</span>
+        </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -1,43 +1,34 @@
 ﻿@model ASPStellysCake.Models.Category
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Нова категория";
 }
-
-<h1>Създаване</h1>
-
-<h4>Категория</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label">Име на категория</label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label">Описание</label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            @* <div class="form-group">
-                <label asp-for="RegisterOn" class="control-label"></label>
-                <input asp-for="RegisterOn" class="form-control" />
-                <span asp-validation-for="RegisterOn" class="text-danger"></span>
-            </div> *@
-            <div class="form-group">
-                <input type="submit" value="Създай" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div class="section-header">
+    <h1 class="section-title">Нова категория</h1>
+    <a asp-action="Index" class="btn-ghost">← Обратно</a>
 </div>
-
-<div>
-    <a asp-action="Index">Върни се в списъка</a>
+<div class="form-card">
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+        <div class="mb-3">
+            <label class="form-label">Наименование</label>
+            <input asp-for="Name" class="form-control" placeholder="Напр. Класически торти" />
+            <span asp-validation-for="Name" class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Описание</label>
+            <input asp-for="Description" class="form-control" placeholder="Кратко описание" />
+        </div>
+        <div class="mt-4 d-flex gap-3">
+            <button type="submit" class="btn-pink">✅ Добави</button>
+            <a asp-action="Index" class="btn-ghost">Отказ</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
 }

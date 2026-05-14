@@ -2,27 +2,50 @@
     ViewData["Title"] = "Начало";
 }
 
-<div class="home-container">
-    <div class="hero">
-        <h1>Stelly's Cake 🎂</h1>
-        <p>Създаваме сладки моменти с любов и вкус</p>
-    </div>
+<div class="hero">
+    <h1>Stelly's Cakes 🎂</h1>
+    <p>Ръчно изработени торти с любов и вкус за всеки специален момент</p>
+    @if (!User.Identity?.IsAuthenticated ?? true)
+    {
+        <a asp-area="Identity" asp-page="/Account/Register" class="hero-btn">
+            Започни сега →
+        </a>
+    }
+    else if (User.IsInRole("Customer"))
+    {
+        <a asp-controller="Products" asp-action="Index" asp-route-categoryId="2" class="hero-btn">
+            Разгледай тортите →
+        </a>
+    }
+</div>
 
-    <div class="features">
-        <a asp-controller="Products" asp-action="Index" asp-route-categoryId=2>
-            <div class="feature-card">
-                <h3>Класически торти</h3>
-            </div>
-        </a>        
-        <a asp-controller="Products" asp-action="Index" asp-route-categoryId=3>
-            <div class="feature-card">
-                <h3>Торти за повод</h3>
-            </div>
-        </a>        
-        <a asp-controller="Products" asp-action="Index" asp-route-categoryId=4>
-            <div class="feature-card">
-                <h3>Без глутен</h3>
-            </div>
-        </a>        
-    </div>
+<div class="features">
+    <a asp-controller="Products" asp-action="Index" asp-route-categoryId="2" style="text-decoration:none">
+        <div class="feature-card">
+            <span class="feature-icon">🎂</span>
+            <h3>Класически торти</h3>
+            <p>Традиционни вкусове и рецепти, проверени от поколения</p>
+        </div>
+    </a>
+    <a asp-controller="Products" asp-action="Index" asp-route-categoryId="3" style="text-decoration:none">
+        <div class="feature-card">
+            <span class="feature-icon">🎉</span>
+            <h3>Торти за повод</h3>
+            <p>Рождени дни, сватби и всеки специален момент</p>
+        </div>
+    </a>
+    <a asp-controller="Products" asp-action="Index" asp-route-categoryId="4" style="text-decoration:none">
+        <div class="feature-card">
+            <span class="feature-icon">🌿</span>
+            <h3>Без глутен</h3>
+            <p>Вкусно за всеки — без компромис с качеството</p>
+        </div>
+    </a>
+    <a asp-controller="Home" asp-action="Privacy" style="text-decoration:none">
+        <div class="feature-card">
+            <span class="feature-icon">📍</span>
+            <h3>Намери ни</h3>
+            <p>Посети ни или се свържи с нас за поръчка по заявка</p>
+        </div>
+    </a>
 </div>

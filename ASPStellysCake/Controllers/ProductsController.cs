@@ -22,7 +22,7 @@ namespace ASPStellysCake.Controllers
         // GET: Products
         public async Task<IActionResult> Index(int categoryId)
         {
-            var applicationDbContext = _context.Products.Include(p => p.Categories).Where(x=>x.CategoryId==categoryId);
+            var applicationDbContext = _context.Products.Include(p => p.Categories).Where(x => x.CategoryId == categoryId);
             ViewData["Titttt"] = "WKSTMNOI";
             return View(await applicationDbContext.ToListAsync());
         }
@@ -52,7 +52,16 @@ namespace ASPStellysCake.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+            var categories = _context.Categories.ToList();
+
+            ViewBag.HasCategories = categories.Any();
+
+            ViewBag.Categories = categories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Name
+            }).ToList();
+
             return View();
         }
 
@@ -71,8 +80,18 @@ namespace ASPStellysCake.Controllers
                 return RedirectToAction(nameof(Index), new { categoryId = product.CategoryId });
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+            var categories = _context.Categories.ToList();
+
+            ViewBag.HasCategories = categories.Any();
+
+            ViewBag.Categories = categories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Name
+            }).ToList();
             return View(product);
         }
+
 
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -174,3 +193,7 @@ namespace ASPStellysCake.Controllers
         }
     }
 }
+
+
+
+

@@ -1,54 +1,88 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Контакти";
 }
 
-<div class="contact-container">
+<div class="section-header">
+    <h1 class="section-title">Контакти</h1>
+</div>
 
-    <h1>Контакти</h1>
+<div class="contact-grid">
 
-    <div class="contact-content">
+    <!-- Contact Info -->
+    <div class="contact-card">
+        <h3>Stelly's Cakes</h3>
 
-        <div class="contact-info">
-            <h3>Stelly's Cakes</h3>
-
-            <p><strong>Адрес:</strong> София, България</p>
-            <p><strong>Телефон:</strong> +359 888 123 456</p>
-            <p><strong>Email:</strong> info@stellycakes.com</p>
-
-            <hr />
-
-            <p><strong>Работно време:</strong></p>
-            <p>Пон - Пет: 09:00 - 18:00</p>
-            <p>Събота: 10:00 - 16:00</p>
-            <p>Неделя: Почивен</p>
+        <div class="contact-info-row">
+            <span class="contact-info-label">Адрес:</span>
+            <span>София, България</span>
         </div>
 
-        <div class="contact-form">
-            <form>
+        <div class="contact-info-row">
+            <span class="contact-info-label">Телефон:</span>
+            <span>+359 888 123 456</span>
+        </div>
+
+        <div class="contact-info-row">
+            <span class="contact-info-label">Email:</span>
+            <span>info@stellycakes.com</span>
+        </div>
+
+        <div class="contact-info-row">
+            <span class="contact-info-label">Пон - Пет:</span>
+            <span>09:00 - 18:00</span>
+        </div>
+
+        <div class="contact-info-row">
+            <span class="contact-info-label">Събота:</span>
+            <span>10:00 - 16:00</span>
+        </div>
+
+        <div class="contact-info-row">
+            <span class="contact-info-label">Неделя:</span>
+            <span>Почивен</span>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-card">
+        <h3>Изпрати запитване</h3>
+
+        <form>
+
+            <div class="contact-form-group">
                 <label>Име</label>
                 <input type="text" placeholder="Въведи име" />
+            </div>
 
+            <div class="contact-form-group">
                 <label>Фамилия</label>
                 <input type="text" placeholder="Въведи фамилия" />
+            </div>
 
+            <div class="contact-form-group">
                 <label>Имейл</label>
                 <input type="email" placeholder="Въведи имейл" />
+            </div>
 
+            <div class="contact-form-group">
                 <label>Телефон</label>
                 <input type="text" placeholder="Въведи телефон" />
-
-                <button type="submit">Изпрати</button>
-            </form>
-        </div>
-
-        <div class="contact-map">
-            <div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46961.310220671505!2d24.77093621629568!3d42.638423911110635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a996357b009b0f%3A0xe6e72ce0b09aecd2!2z0JrQsNGA0LvQvtCy0L4!5e0!3m2!1sbg!2sbg!4v1774854362495!5m2!1sbg!2sbg">
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
             </div>
-        </div>
 
+            <button type="submit" class="btn-pink">
+                Изпрати
+            </button>
+
+        </form>
     </div>
+
+    <!-- Map -->
+    <div class="contact-map-card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46961.310220671505!2d24.77093621629568!3d42.638423911110635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a996357b009b0f%3A0xe6e72ce0b09aecd2!2z0JrQsNGA0LvQvtCy0L4!5e0!3m2!1sbg!2sbg!4v1774854362495!5m2!1sbg!2sbg"
+                allowfullscreen=""
+                loading="lazy">
+        </iframe>
+    </div>
+
 </div>
