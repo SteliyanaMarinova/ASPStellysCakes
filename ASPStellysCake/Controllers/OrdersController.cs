@@ -28,9 +28,22 @@ namespace ASPStellysCake.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Orders.Include(o => o.Customers).Include(o => o.Products);
-            return View(await applicationDbContext.ToListAsync());
+        // 1. Get the currently logged in user's ID
+        var userId = _userManager.GetUserId(User);
+    
+        // 2. Prepare the query
+        var applicationDbContext = _context.Orders.Include(o => o.Customers).Include(o => o.Products).AsQueryable();
+
+        // 3. If the user is NOT an Admin, filter the list to only show their own orders
+        if (!User.IsInRole("Admin"))
+        {
+        applicationDbContext = applicationDbContext.Where(o => o.CustomerId == userId);
         }
+
+        // 4. Return the filtered list to the view
+        return View(await applicationDbContext.ToListAsync());
+        }
+
 
         // GET: Orders/Details/5
         public async Task<IActionResult> Details(int? id)
